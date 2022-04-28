@@ -43,9 +43,8 @@
       background-color: #1f1d1d;
       position: fixed;
       right: -50vw;
-      box-shadow: 0 15px 60px rgba($color-black, 0.4);
-      opacity: 0.7;
-      border-radius: 10px;
+      @include flexLayout;
+      transition: right 0.8s cubic-bezier(1, 0, 0, 1);
     }
 
     .nav-list {
@@ -70,6 +69,30 @@
       }
     }
   }
+}
+
+.checkbox:checked ~ .navbar-navigation .navbar-navigation-left {
+  left: 0;
+}
+
+.checkbox:checked ~ .navbar-navigation .navbar-navigation-right {
+  right: 0;
+}
+
+.checkbox:checked ~ .hamburger-menu .menu {
+  transform: rotateZ(90deg);
+}
+
+.checkbox:checked ~ .hamburger-menu .menu-line-1 {
+  transform: rotateZ(-40deg);
+}
+
+.checkbox:checked ~ .hamburger-menu .menu-line-2 {
+  opacity: 0;
+}
+
+.checkbox:checked ~ .hamburger-menu .menu-line-3 {
+  transform: rotateZ(40deg);
 }
 
 .header {
